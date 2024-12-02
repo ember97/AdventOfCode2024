@@ -4,7 +4,7 @@ async function main(){
     const data = await parseFile("Day2.txt");
     const matrix = data.split('\r\n').map(s => s.split(' ').map(n => parseInt(n)));
 
-    console.log(matrix[0]);
+    //console.log(matrix[0]);
     part1(matrix);
 }
 
@@ -19,7 +19,7 @@ function part1(matrix){
 
     for(var r=0; r<matrix.length; r++){
         const info = isRowSafe(matrix[r]);
-        console.log(info);
+        //console.log(info);
 
         if(info[1]){
             sum+=1;
@@ -32,16 +32,23 @@ function part1(matrix){
     
   
     
-    const increasingRow = [1,4,6,9,10,12,14,16];
-    const decreasingRow = [7,5,3,2,1];
-    const mixedRow = [2,3,4,3];
-    const containsDuplicatesRow = [4,5,6,7,7];
+    const increasingRow = [91,94,96,99,100,102,104,106];
+    const increasingRowSmall = [81,82,83];
+    const decreasingRow = [77,75,73,72,71];
+    const mixedRow = [72,73,74,73];
+    const mixedRow2 = [10,12,10,12];
+    const containsDuplicatesRow = [14,15,16,17,17];
     
 
     console.log("Expected: true. Actual: ", isRowSafe(increasingRow));
+    console.log("Expected: true. Actual: ", isRowSafe(increasingRowSmall));
     console.log("Expected: true. Actual: ", isRowSafe(decreasingRow));
     console.log("Expected: false. Actual: ", isRowSafe(mixedRow));
+    console.log("Expected: false. Actual: ", isRowSafe(mixedRow2));
     console.log("Expected: false. Actual: ", isRowSafe(containsDuplicatesRow));
+
+    console.log("Expected: false. Actual: ", isRowSafe([1, 1]));
+    console.log("Expected: false. Actual: ", isRowSafe([1, 4, 8, 10]));
 }
 
 // bug :(
